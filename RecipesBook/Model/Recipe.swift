@@ -6,4 +6,14 @@ struct Recipe : Codable {
     var description : String?
     var instructions : String
     var difficulty : Int
+    
+    init() {
+        self.uuid = ""
+        self.name = ""
+        self.images = [String]()
+        self.lastUpdated = 0
+        self.description = ""
+        self.instructions = ""
+        self.difficulty = 0
+    }
 }

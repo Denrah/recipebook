@@ -1,10 +1,9 @@
 class RecipesListViewModel {
     
-    weak var coordinator : RecipesCoordinator?
-    weak var view : RecipesListViewController?
+    weak var coordinatorDelegate : RecipesListCoordinator?
     
-    fileprivate let dataProvider : DataProvider
-    fileprivate var recipes : RecipesData!
+    let dataProvider : DataProvider
+    var recipes = Dynamic<RecipesData>(RecipesData())
     
     init(dataProvider: DataProvider) {
         self.dataProvider = dataProvider
@@ -15,8 +14,13 @@ class RecipesListViewModel {
     }
     
     func getRecipes() {
-        self.recipes = dataProvider.getRecipes()
-        print(self.recipes)
+        dataProvider.fetchData { (recipesData) in
+            self.recipes.value = recipesData
+        }
+    }
+    
+    func goToRecipeDetails(id: String) {
+        coordinatorDelegate?.goToRecipeDetails(id: id)
     }
     
 }

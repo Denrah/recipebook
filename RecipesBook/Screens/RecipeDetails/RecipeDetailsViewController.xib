@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeDetailsViewController" customModule="RecipesBook" customModuleProvider="target">
             <connections>
+                <outlet property="recipeDescription" destination="gQt-ry-gbk" id="o97-UY-0w0"/>
+                <outlet property="recipeImages" destination="vHp-0Y-F2Q" id="fRj-tB-NjV"/>
+                <outlet property="recipeInstructions" destination="TnM-5Z-ZYP" id="lWb-7s-E5f"/>
+                <outlet property="recipeTitle" destination="Afu-qH-lSH" id="bh2-PC-3O9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,17 +24,62 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afu-qH-lSH">
-                    <rect key="frame" x="218" y="382" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aup-9w-DVr">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lWw-5j-maw">
+                            <rect key="frame" x="0.0" y="8" width="414" height="366"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afu-qH-lSH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="33"/>
+                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-ry-gbk">
+                                    <rect key="frame" x="0.0" y="41" width="414" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnM-5Z-ZYP">
+                                    <rect key="frame" x="0.0" y="69.5" width="414" height="20.5"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Label">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="17"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHp-0Y-F2Q">
+                                    <rect key="frame" x="0.0" y="98" width="414" height="268"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="268" id="6n4-ee-2Lq"/>
+                                    </constraints>
+                                </scrollView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="lWw-5j-maw" secondAttribute="bottom" id="UvX-7v-b0t"/>
+                        <constraint firstItem="lWw-5j-maw" firstAttribute="leading" secondItem="aup-9w-DVr" secondAttribute="leading" id="aLI-4C-hX2"/>
+                        <constraint firstItem="lWw-5j-maw" firstAttribute="top" secondItem="aup-9w-DVr" secondAttribute="top" constant="8" id="cTC-3d-bZm"/>
+                        <constraint firstAttribute="trailing" secondItem="lWw-5j-maw" secondAttribute="trailing" id="jPA-YU-jaW"/>
+                        <constraint firstItem="lWw-5j-maw" firstAttribute="width" secondItem="aup-9w-DVr" secondAttribute="width" id="slO-4c-0yi"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aup-9w-DVr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="adu-gd-sBI"/>
+                <constraint firstItem="aup-9w-DVr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bxI-Nm-7n2"/>
+                <constraint firstItem="aup-9w-DVr" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="iFv-qb-Uad"/>
+                <constraint firstItem="aup-9w-DVr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mvM-9s-DXJ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-55" y="58"/>
+            <point key="canvasLocation" x="-55.072463768115945" y="57.589285714285708"/>
         </view>
     </objects>
 </document>

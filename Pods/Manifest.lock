@@ -1,20 +1,29 @@
 PODS:
   - Alamofire (4.8.2)
+  - Auk (10.0.0):
+    - moa
   - Kingfisher (5.4.0)
+  - moa (11.0.1)
 
 DEPENDENCIES:
   - Alamofire
+  - Auk
   - Kingfisher
+  - moa
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Auk
     - Kingfisher
+    - moa
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Auk: 4aef1683b8cbe7d66388ac22d0ec622d0d1426d3
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  moa: a26c4e97c7ac9345e87c4bb999e85116c8ec0310
 
-PODFILE CHECKSUM: 4984d6014468361bbb437f9d22480b006e3923c2
+PODFILE CHECKSUM: 16f67e91bc814f4d2e5b7d655e3df1da570d8222
 
 COCOAPODS: 1.6.1

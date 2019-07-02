@@ -9,5 +9,7 @@ target 'RecipesBook' do
 
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'moa'
+  pod 'Auk'
 
 end

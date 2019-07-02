@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipesCoordinator: Coordinator {
+class RecipesListCoordinator: Coordinator {
 
     let rootViewController: UINavigationController
     
@@ -23,7 +23,7 @@ class RecipesCoordinator: Coordinator {
     
     lazy var recipesListViewModel: RecipesListViewModel! = {
         let viewModel = RecipesListViewModel(dataProvider: self.dataProvider)
-        viewModel.coordinator = self
+        viewModel.coordinatorDelegate = self
         return viewModel
     }()
     
@@ -36,7 +36,6 @@ class RecipesCoordinator: Coordinator {
     override func start() {
         let recipesListViewController = RecipesListViewController(nibName: "RecipesListViewController", bundle: nil)
         
-        recipesListViewController.coordinator = self
         recipesListViewController.viewModel = recipesListViewModel
         
         
@@ -50,12 +49,25 @@ class RecipesCoordinator: Coordinator {
     
 }
 
-extension RecipesCoordinator {
+extension RecipesListCoordinator {
     
-    func goToRecipeDetails() {
+    func goToRecipeDetails(id: String) {
         
-        let recipeDetailsViewController = RecipeDetailsViewController(nibName: "RecipeDetailsViewController", bundle: nil)
+        let recipeDetailsCoordinator = RecipeDetailsCoordinator(dataProvider: self.dataProvider, rootViewController: self.rootViewController, id: id)
         
-        rootViewController.pushViewController(recipeDetailsViewController, animated: true)
+        recipeDetailsCoordinator.delegate = self
+        
+        addChildCoordinator(recipeDetailsCoordinator)
+        
+        recipeDetailsCoordinator.start()
     }
+}
+
+extension RecipesListCoordinator : RecipesListCoordinatorDelegate {
+    
+    func didFinish(from coordinator: RecipeDetailsCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+    
+    
 }

@@ -8,11 +8,10 @@ class AppCoordinator: Coordinator {
         return UINavigationController(rootViewController: UIViewController())
     }()
     
-    let dataProvider: DataProvider
+    lazy var dataProvider = DataProvider()
     
-    init(window: UIWindow?, dataProvider: DataProvider) {
+    init(window: UIWindow?) {
         self.window = window
-        self.dataProvider = dataProvider
     }
     
     override func start() {
@@ -20,7 +19,7 @@ class AppCoordinator: Coordinator {
             return
         }
         
-        let recipesCoordinator = RecipesCoordinator(dataProvider: dataProvider, rootViewController: rootViewController)
+        let recipesCoordinator = RecipesListCoordinator(dataProvider: dataProvider, rootViewController: rootViewController)
         
         self.addChildCoordinator(recipesCoordinator)
         
