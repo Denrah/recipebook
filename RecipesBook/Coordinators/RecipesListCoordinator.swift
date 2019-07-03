@@ -51,9 +51,9 @@ class RecipesListCoordinator: Coordinator {
 
 extension RecipesListCoordinator {
     
-    func goToRecipeDetails(id: String) {
+    func goToRecipeDetails(recipeId: String) {
         
-        let recipeDetailsCoordinator = RecipeDetailsCoordinator(dataProvider: self.dataProvider, rootViewController: self.rootViewController, id: id)
+        let recipeDetailsCoordinator = RecipeDetailsCoordinator(dataProvider: self.dataProvider, rootViewController: self.rootViewController, recipeId: recipeId)
         
         recipeDetailsCoordinator.delegate = self
         

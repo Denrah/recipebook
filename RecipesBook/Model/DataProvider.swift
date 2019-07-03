@@ -20,7 +20,7 @@ class DataProvider {
             
             do {
                 self.recipes = try decoder.decode(RecipesData.self, from: data)
-                completion(self.recipes)
+                completion(self.sortRecipes(sortingType: SortingType.name, recipesData: self.recipes))
 
             } catch let error {
                 print(error)
@@ -33,11 +33,42 @@ class DataProvider {
         return recipes
     }
     
-    func getRecipeById(id: String) -> Recipe? {
-        var recipe = self.recipes.recipes.filter { $0.uuid == id }
+    func getRecipeById(recipeId: String) -> Recipe? {
+        var recipe = self.recipes.recipes.filter { $0.uuid == recipeId }
         guard recipe.count > 0 else {
             return nil
         }
         return recipe[0]
+    }
+    
+    func searchRecipes(text: String, sortingType: Int) -> RecipesData {
+        
+        guard text != "" else {
+            return sortRecipes(sortingType: sortingType, recipesData: self.recipes)
+        }
+        
+        var data = RecipesData()
+        data.recipes = self.recipes.recipes.filter { (recipe) -> Bool in
+            if recipe.name.contains(text) || recipe.instructions.contains(text) || recipe.description?.contains(text) ?? false {
+                return true
+            }
+            return false
+        }
+        
+        return sortRecipes(sortingType: sortingType, recipesData: data)
+    }
+    
+    func sortRecipes(sortingType: Int, recipesData: RecipesData) -> RecipesData {
+        var data = RecipesData()
+        switch sortingType {
+        case SortingType.name:
+            data.recipes = recipesData.recipes.sorted(by: { $0.name < $1.name })
+        case SortingType.updated:
+            data.recipes = recipesData.recipes.sorted(by: { $0.lastUpdated < $1.lastUpdated })
+        default:
+            data.recipes = recipesData.recipes.sorted(by: { $0.name < $1.name })
+        }
+        
+        return data
     }
 }

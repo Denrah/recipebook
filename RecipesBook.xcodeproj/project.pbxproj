@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8413755C22CBAC4200E56085 /* RecipesListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413755A22CBAC4200E56085 /* RecipesListTableHeaderView.swift */; };
+		8413755D22CBAC4200E56085 /* RecipesListTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413755B22CBAC4200E56085 /* RecipesListTableHeaderView.xib */; };
+		8413755F22CC64AC00E56085 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413755E22CC64AC00E56085 /* Colors.swift */; };
 		8472F7AB22CA5A9700822DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7AA22CA5A9700822DD6 /* AppDelegate.swift */; };
 		8472F7AD22CA5A9700822DD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7AC22CA5A9700822DD6 /* ViewController.swift */; };
 		8472F7B022CA5A9700822DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8472F7AE22CA5A9700822DD6 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		6758CF00FFA8F6F50BE4822E /* Pods_RecipesBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipesBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8413755A22CBAC4200E56085 /* RecipesListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListTableHeaderView.swift; sourceTree = "<group>"; };
+		8413755B22CBAC4200E56085 /* RecipesListTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesListTableHeaderView.xib; sourceTree = "<group>"; };
+		8413755E22CC64AC00E56085 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8472F7A722CA5A9700822DD6 /* RecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8472F7AA22CA5A9700822DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8472F7AC22CA5A9700822DD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				8472F7C222CA5EF600822DD6 /* Constants.swift */,
+				8413755E22CC64AC00E56085 /* Colors.swift */,
 			);
 			path = Values;
 			sourceTree = "<group>";
@@ -182,6 +189,8 @@
 			children = (
 				8472F7DE22CB2A4B00822DD6 /* RecipesListCell.swift */,
 				8472F7DF22CB2A4B00822DD6 /* RecipesListCell.xib */,
+				8413755A22CBAC4200E56085 /* RecipesListTableHeaderView.swift */,
+				8413755B22CBAC4200E56085 /* RecipesListTableHeaderView.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8413755D22CBAC4200E56085 /* RecipesListTableHeaderView.xib in Resources */,
 				8472F7C822CA61B500822DD6 /* RecipesListViewController.xib in Resources */,
 				8472F7B522CA5A9A00822DD6 /* LaunchScreen.storyboard in Resources */,
 				8472F7B222CA5A9A00822DD6 /* Assets.xcassets in Resources */,
@@ -343,10 +353,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8472F7EE22CB49BA00822DD6 /* RecipeDetailsViewModel.swift in Sources */,
+				8413755F22CC64AC00E56085 /* Colors.swift in Sources */,
 				8472F7EA22CB44BF00822DD6 /* RecipeDetailsCoordinator.swift in Sources */,
 				8472F7CC22CA621E00822DD6 /* Coordinator.swift in Sources */,
 				8472F7EC22CB484A00822DD6 /* RecipesListCoordinatorDelegate.swift in Sources */,
 				8472F7DA22CB13E500822DD6 /* RecipesData.swift in Sources */,
+				8413755C22CBAC4200E56085 /* RecipesListTableHeaderView.swift in Sources */,
 				8472F7E022CB2A4B00822DD6 /* RecipesListCell.swift in Sources */,
 				8472F7E422CB301E00822DD6 /* Dynamic.swift in Sources */,
 				8472F7C322CA5EF600822DD6 /* Constants.swift in Sources */,

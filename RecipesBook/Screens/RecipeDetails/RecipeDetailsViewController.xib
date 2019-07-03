@@ -60,6 +60,11 @@
                                     </constraints>
                                 </scrollView>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="Afu-qH-lSH" firstAttribute="leading" secondItem="lWw-5j-maw" secondAttribute="leading" constant="20" id="hxS-wB-RTD"/>
+                                <constraint firstItem="Afu-qH-lSH" firstAttribute="top" secondItem="lWw-5j-maw" secondAttribute="top" constant="20" id="jI3-IH-jcs"/>
+                                <constraint firstAttribute="trailing" secondItem="Afu-qH-lSH" secondAttribute="trailing" constant="-20" id="jkr-xm-8xP"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <constraints>

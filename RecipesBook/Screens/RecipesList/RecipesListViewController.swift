@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class RecipesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecipesListViewController: UIViewController {
     
     var viewModel : RecipesListViewModel! {
         didSet {
@@ -23,15 +24,36 @@ class RecipesListViewController: UIViewController, UITableViewDelegate, UITableV
     var recipesData = RecipesData()
     
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var recipesTableView: UITableView!
-    let nib = UINib(nibName: "RecipesListCell", bundle: nil)
+    
+    let tableCell = UINib(nibName: "RecipesListCell", bundle: nil)
+    
+    let tableHeader = UINib(nibName: "RecipesListTableHeaderView", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.primary.cgColor, UIColor.primaryDarker.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.frame = backgroundView.bounds
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        
         recipesTableView.delegate = self
         recipesTableView.dataSource = self
-        recipesTableView.register(nib, forCellReuseIdentifier: "RecipeCell")
+        recipesTableView.register(tableCell, forCellReuseIdentifier: "RecipeCell")
+        
+        let tableHeaderView = tableHeader.instantiate(withOwner: self, options: nil).first as? RecipesListTableHeaderView
+        
+        tableHeaderView?.parentDelegate = self
+        
+        tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableHeaderView?.frame.width ?? 100, height: 190)
+        
+        
+        recipesTableView.tableHeaderView = tableHeaderView
         
         viewModel.start()
         // Do any additional setup after loading the view.
@@ -40,24 +62,10 @@ class RecipesListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-extension RecipesListViewController {
+extension RecipesListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesData.recipes.count
@@ -65,12 +73,24 @@ extension RecipesListViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as! RecipesListCell
-        (cell.viewWithTag(1) as! UILabel).text = recipesData.recipes[indexPath.row].name
+        
+        cell.setup(title: recipesData.recipes[indexPath.row].name, description: recipesData.recipes[indexPath.row].description?.trunc(length: 100), image: recipesData.recipes[indexPath.row].images[0], updated: recipesData.recipes[indexPath.row].lastUpdated)
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.goToRecipeDetails(id: self.recipesData.recipes[indexPath.row].uuid)
+        viewModel.goToRecipeDetails(index: indexPath.row)
     }
+}
 
+extension RecipesListViewController {
+    
+    func search(text: String, sortingType: Int) {
+        viewModel.searchRecipes(text: text, sortingType: sortingType)
+    }
+    
+    func sort(sortingType: Int) {
+        viewModel.sortRecipes(sortingType: sortingType)
+    }
 }

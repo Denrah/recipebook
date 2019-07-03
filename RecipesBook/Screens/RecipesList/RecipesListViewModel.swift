@@ -19,8 +19,16 @@ class RecipesListViewModel {
         }
     }
     
-    func goToRecipeDetails(id: String) {
-        coordinatorDelegate?.goToRecipeDetails(id: id)
+    func goToRecipeDetails(index: Int) {
+        coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes.value?.recipes[index].uuid ?? "")
+    }
+    
+    func searchRecipes(text: String, sortingType: Int) {
+        self.recipes.value = dataProvider.searchRecipes(text: text, sortingType: sortingType)
+    }
+    
+    func sortRecipes(sortingType: Int) {
+        self.recipes.value = dataProvider.sortRecipes(sortingType: sortingType, recipesData: self.recipes.value ?? RecipesData())
     }
     
 }

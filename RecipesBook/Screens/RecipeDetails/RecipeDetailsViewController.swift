@@ -16,12 +16,17 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet weak var recipeInstructions: UILabel!
     @IBOutlet weak var recipeImages: UIScrollView!
     
+    
+    
     var viewModel : RecipeDetailsViewModel! {
         didSet {
             viewModel.recipe.bind = {[unowned self] in
                 self.recipeTitle.text = $0.name
                 self.recipeDescription.text = $0.description
                 self.recipeInstructions.attributedText = $0.instructions.htmlAttributed(family: nil, size: 17)
+                for image in $0.images {
+                    self.recipeImages.auk.show(url: image)
+                }
             }
         }
     }
@@ -36,11 +41,11 @@ class RecipeDetailsViewController: UIViewController {
         
         self.recipeTitle.text = recipe.name
         self.recipeDescription.text = recipe.description
-        self.recipeInstructions.attributedText = recipe.instructions.htmlAttributed(family: nil, size: 17)
-        recipe.images.map { (image) -> Void in
+        self.recipeInstructions.attributedText = recipe.instructions.htmlAttributed(family: nil, size: 12)
+        for image in recipe.images {
             recipeImages.auk.show(url: image)
         }
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,16 +58,5 @@ class RecipeDetailsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

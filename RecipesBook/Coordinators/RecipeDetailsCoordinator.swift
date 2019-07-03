@@ -26,16 +26,16 @@ class RecipeDetailsCoordinator: Coordinator {
      }*/
     
     lazy var recipeDetailsViewModel: RecipeDetailsViewModel! = {
-        let viewModel = RecipeDetailsViewModel(dataProvider: self.dataProvider, id: self.recipeId)
+        let viewModel = RecipeDetailsViewModel(dataProvider: self.dataProvider, recipeId: self.recipeId)
         viewModel.coordinatorDelegate = self
         return viewModel
     }()
     
     // MARK: - Coordinator
-    init(dataProvider: DataProvider, rootViewController: UINavigationController, id: String) {
+    init(dataProvider: DataProvider, rootViewController: UINavigationController, recipeId: String) {
         self.dataProvider = dataProvider
         self.rootViewController = rootViewController
-        self.recipeId = id
+        self.recipeId = recipeId
     }
     
     override func start() {

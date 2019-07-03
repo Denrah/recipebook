@@ -8,10 +8,10 @@ class RecipeDetailsViewModel {
     
     let dataProvider : DataProvider
     
-    init(dataProvider: DataProvider, id: String) {
+    init(dataProvider: DataProvider, recipeId: String) {
         self.dataProvider = dataProvider
-        self.recipeId = Dynamic<String>(id)
-        guard let data = dataProvider.getRecipeById(id: id) else  {
+        self.recipeId = Dynamic<String>(recipeId)
+        guard let data = dataProvider.getRecipeById(recipeId: recipeId) else  {
             return
         }
         self.recipe.value = data
