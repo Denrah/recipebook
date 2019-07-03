@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window?.tintColor = UIColor.primaryDarker
+        
         appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         

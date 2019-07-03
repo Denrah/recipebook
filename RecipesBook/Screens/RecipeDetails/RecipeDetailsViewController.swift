@@ -16,6 +16,10 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet weak var recipeInstructions: UILabel!
     @IBOutlet weak var recipeImages: UIScrollView!
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var difficultyIndicatorContainer: UIView!
+    
+    let difficultyIndicator = UINib(nibName: "DifficultyIndicatorView", bundle: nil)
     
     
     var viewModel : RecipeDetailsViewModel! {
@@ -35,9 +39,23 @@ class RecipeDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         
+        self.containerView.layer.shadowColor = UIColor.shadow.cgColor
+        self.containerView.layer.shadowOpacity = 0.5
+        self.containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.containerView.layer.shadowRadius = 10
+        self.containerView.layer.masksToBounds = false
+        
+
+        
         guard let recipe = viewModel.recipe.value else {
             return
         }
+        
+        let difficultyIndicatorView = difficultyIndicator.instantiate(withOwner: self, options: nil).first as? DifficultyIndicatorView
+        difficultyIndicatorView?.setDifficlty(value: recipe.difficulty)
+        
+        difficultyIndicatorContainer.addSubview(difficultyIndicatorView ?? UIView())
+        
         
         self.recipeTitle.text = recipe.name
         self.recipeDescription.text = recipe.description
@@ -56,6 +74,12 @@ class RecipeDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+    
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
 
     }
 
