@@ -19,6 +19,8 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var difficultyIndicatorContainer: UIView!
     
+    @IBOutlet weak var imagesPlaceholder: UIView!
+    
     let difficultyIndicator = UINib(nibName: "DifficultyIndicatorView", bundle: nil)
     
     
@@ -62,6 +64,10 @@ class RecipeDetailsViewController: UIViewController {
         self.recipeInstructions.attributedText = recipe.instructions.htmlAttributed(family: nil, size: 12)
         for image in recipe.images {
             recipeImages.auk.show(url: image)
+        }
+        
+        if recipe.images.count > 0 {
+            imagesPlaceholder.removeFromSuperview()
         }
 
     }
