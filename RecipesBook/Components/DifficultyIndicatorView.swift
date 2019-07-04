@@ -9,16 +9,21 @@
 import UIKit
 
 class DifficultyIndicatorView : UIView {
-
     
-    @IBOutlet weak var difficultyBar: UIView!
-    @IBOutlet weak var difficultyValue: UILabel!
-    @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hat1: UIImageView!
+    @IBOutlet weak var hat2: UIImageView!
+    @IBOutlet weak var hat3: UIImageView!
+    @IBOutlet weak var hat4: UIImageView!
+    @IBOutlet weak var hat5: UIImageView!
     
     func setDifficlty(value: Int) {
-        difficultyValue.text = "\(value)/5"
-        barWidthConstraint.constant = CGFloat(20 * value)
-        difficultyBar.layoutIfNeeded()
+        let hats : [UIImageView] = [self.hat1, self.hat2, self.hat3, self.hat4, self.hat5]
+        for i in 0..<value {
+            hats[i].isHidden = false
+        }
+        for i in value..<5 {
+            hats[i].isHidden = true
+        }
     }
     
 }

@@ -102,7 +102,13 @@ extension RecipesListViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as! RecipesListCell
         
-        cell.setup(title: recipesData.recipes[indexPath.row].name, description: recipesData.recipes[indexPath.row].description?.trunc(length: 100), image: recipesData.recipes[indexPath.row].images[0], updated: recipesData.recipes[indexPath.row].lastUpdated)
+        var image: String? = nil
+        
+        if recipesData.recipes[indexPath.row].images.count > 0 {
+            image = recipesData.recipes[indexPath.row].images[0]
+        }
+        
+        cell.setup(title: recipesData.recipes[indexPath.row].name, description: recipesData.recipes[indexPath.row].description?.trunc(length: 100), image: image, updated: recipesData.recipes[indexPath.row].lastUpdated)
     
         return cell
     }

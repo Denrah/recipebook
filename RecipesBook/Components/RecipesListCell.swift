@@ -32,7 +32,7 @@ class RecipesListCell: UITableViewCell {
         // Initialization code
     }
     
-    func setup(title: String, description: String?, image: String, updated: Int) {
+    func setup(title: String, description: String?, image recipeImage: String?, updated: Int) {
         
         let date = Date(timeIntervalSince1970: TimeInterval(updated))
         let dateFormatter = DateFormatter()
@@ -40,7 +40,13 @@ class RecipesListCell: UITableViewCell {
         
         cellTitle.text = title
         cellDescription.text = description ?? ""
-        cellImage.kf.setImage(with: URL(string: image))
+        
+        if let image = recipeImage {
+            cellImage.kf.setImage(with: URL(string: image))
+        } else {
+            cellImage.image = #imageLiteral(resourceName: "andy-chilton-0JFveX0c778-unsplash")
+        }
+        
         cellUpdated.text = "Last updated: " + dateFormatter.string(from: date)
     }
     
