@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class RecipesListViewController: UIViewController {
     
@@ -115,7 +114,7 @@ extension RecipesListViewController : UITableViewDelegate, UITableViewDataSource
         }
         
         cell.setup(title: recipesData.recipes[indexPath.row].name,
-                   description: recipesData.recipes[indexPath.row].description?.trunc(length: 100),
+                   description: recipesData.recipes[indexPath.row].description,
                    image: image,
                    updated: recipesData.recipes[indexPath.row].lastUpdated)
     

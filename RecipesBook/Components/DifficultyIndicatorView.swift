@@ -29,7 +29,7 @@ class DifficultyIndicatorView : UIView {
     }
     
     func initSubviews() {
-        let nib = UINib(nibName: "DifficultyIndicatorView", bundle: nil)
+        let nib = UINib(nibName: Constants.DifficultyIndicatorName, bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)

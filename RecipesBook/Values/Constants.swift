@@ -4,6 +4,8 @@ enum Constants {
     static let RecipesListCellIdentifier = "RecipeCell"
     static let RecipesListScreenName = "RecipesListViewController"
     static let RecipeDetailsScreenName = "RecipeDetailsViewController"
+    static let RecipeListTableHeaderName = "RecipesListTableHeaderView"
+    static let DifficultyIndicatorName = "DifficultyIndicatorView"
 }
 
 

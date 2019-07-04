@@ -101,6 +101,22 @@ extension String {
 
 extension String {
     func trunc(length: Int, trailing: String = "…") -> String {
-        return (self.count > length) ? self.prefix(length) + trailing : self
+        
+        if self.count <= length {
+            return self
+        }
+        
+        let words = self.split(separator: " ")
+        var result = ""
+        for word in words {
+            result += String(word)
+            
+            if result.count >= length {
+                break
+            }
+            
+            result += " "
+        }
+        return result + trailing
     }
 }

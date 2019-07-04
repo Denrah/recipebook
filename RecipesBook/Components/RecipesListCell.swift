@@ -37,7 +37,7 @@ class RecipesListCell: UITableViewCell {
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
         
         cellTitle.text = title
-        cellDescription.text = description ?? ""
+        cellDescription.text = description?.trunc(length: 80)
         
         if let image = recipeImage {
             cellImage.kf.setImage(with: URL(string: image))

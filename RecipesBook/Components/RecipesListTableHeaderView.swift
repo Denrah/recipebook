@@ -43,7 +43,7 @@ class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
     }
     
     func initSubviews() {
-        let nib = UINib(nibName: "RecipesListTableHeaderView", bundle: nil)
+        let nib = UINib(nibName: Constants.RecipeListTableHeaderName, bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
