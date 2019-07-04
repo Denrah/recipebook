@@ -1,9 +1,12 @@
+import UIKit
+
 class RecipesListViewModel {
     
     weak var coordinatorDelegate : RecipesListCoordinator?
     
     let dataProvider : DataProvider
-    var recipes = Dynamic<RecipesData>(RecipesData())
+    var recipes = Dynamic<RecipesData?>(RecipesData())
+    var isLoading = Dynamic<Bool>(true)
     
     init(dataProvider: DataProvider) {
         self.dataProvider = dataProvider
@@ -14,13 +17,15 @@ class RecipesListViewModel {
     }
     
     func getRecipes() {
+        isLoading.value = true
         dataProvider.fetchData { (recipesData) in
             self.recipes.value = recipesData
+            self.isLoading.value = false
         }
     }
     
     func goToRecipeDetails(index: Int) {
-        coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes.value?.recipes[index].uuid ?? "")
+        coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes.value??.recipes[index].uuid ?? "")
     }
     
     func searchRecipes(text: String, sortingType: Int) {

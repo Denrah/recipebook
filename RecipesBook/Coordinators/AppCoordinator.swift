@@ -19,11 +19,11 @@ class AppCoordinator: Coordinator {
             return
         }
         
-        let recipesCoordinator = RecipesListCoordinator(dataProvider: dataProvider, rootViewController: rootViewController)
+        let recipesListCoordinator = RecipesListCoordinator(dataProvider: dataProvider, rootViewController: rootViewController)
         
-        self.addChildCoordinator(recipesCoordinator)
+        self.addChildCoordinator(recipesListCoordinator)
         
-        recipesCoordinator.start()
+        recipesListCoordinator.start()
         
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()	

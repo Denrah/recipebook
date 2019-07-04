@@ -13,10 +13,32 @@ class RecipesListViewController: UIViewController {
     
     var viewModel : RecipesListViewModel! {
         didSet {
-                   
+            
+            viewModel.isLoading.bind = {[unowned self] in
+                self.preloadingView.isHidden = !$0
+            }
+            
             viewModel.recipes.bind = {[unowned self] in
-                self.recipesData = $0
+                guard let data = $0 else {
+                   
+                    let alert = UIAlertController(title: "Error", message: "Something wrong with your network :(", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title:"Quit", style: .cancel, handler: { (action) in
+                        exit(0)
+                    }))
+                    self.present(alert, animated: true)
+                    return
+
+                }
+                
+                self.recipesData = data
+                
                 self.recipesTableView.reloadData()
+                
+                if self.recipesData.recipes.count == 0 {
+                    self.placeholderView.isHidden = false
+                } else {
+                    self.placeholderView.isHidden = true
+                }
             }
         }
     }
@@ -24,6 +46,8 @@ class RecipesListViewController: UIViewController {
     var recipesData = RecipesData()
     
     
+    @IBOutlet weak var preloadingView: UIView!
+    @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var recipesTableView: UITableView!
     

@@ -8,10 +8,26 @@ class DataProvider {
         self.recipes = RecipesData()
     }
 
-    func fetchData(completion: @escaping (RecipesData) -> Void) {
+    func fetchData(completion: @escaping (RecipesData?) -> Void) {
+        
+        NetworkReachabilityManager(host: "https://www.apple.com/").map {
+            if $0.isReachable {
+                print(true)
+            } else {
+                print(false)
+            }
+        }
+    
+        
+        guard NetworkReachabilityManager()!.isReachable else {
+            completion(nil)
+            return
+        }
+        
         Alamofire.request(Constants.apiUrl).responseData {response in
             
             guard let data = response.data else {
+                completion(nil)
                 return
             }
             
@@ -58,15 +74,15 @@ class DataProvider {
         return sortRecipes(sortingType: sortingType, recipesData: data)
     }
     
-    func sortRecipes(sortingType: Int, recipesData: RecipesData) -> RecipesData {
+    func sortRecipes(sortingType: Int, recipesData: RecipesData?) -> RecipesData {
         var data = RecipesData()
         switch sortingType {
         case SortingType.name:
-            data.recipes = recipesData.recipes.sorted(by: { $0.name < $1.name })
+            data.recipes = recipesData?.recipes.sorted(by: { $0.name < $1.name }) ?? [Recipe]()
         case SortingType.updated:
-            data.recipes = recipesData.recipes.sorted(by: { $0.lastUpdated < $1.lastUpdated })
+            data.recipes = recipesData?.recipes.sorted(by: { $0.lastUpdated < $1.lastUpdated }) ?? [Recipe]()
         default:
-            data.recipes = recipesData.recipes.sorted(by: { $0.name < $1.name })
+            data.recipes = recipesData?.recipes.sorted(by: { $0.name < $1.name }) ?? [Recipe]()
         }
         
         return data
