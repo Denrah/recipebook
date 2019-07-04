@@ -9,14 +9,6 @@ class DataProvider {
     }
 
     func fetchData(completion: @escaping (RecipesData?) -> Void) {
-        
-        NetworkReachabilityManager(host: "https://www.apple.com/").map {
-            if $0.isReachable {
-                print(true)
-            } else {
-                print(false)
-            }
-        }
     
         
         guard NetworkReachabilityManager()!.isReachable else {

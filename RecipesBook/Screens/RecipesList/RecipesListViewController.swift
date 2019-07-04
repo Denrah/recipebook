@@ -73,11 +73,15 @@ class RecipesListViewController: UIViewController {
         let tableHeaderView = tableHeader.instantiate(withOwner: self, options: nil).first as? RecipesListTableHeaderView
         
         tableHeaderView?.parentDelegate = self
+    
         
         tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableHeaderView?.frame.width ?? 100, height: 190)
         
         
         recipesTableView.tableHeaderView = tableHeaderView
+
+        
+       
         
         viewModel.start()
         // Do any additional setup after loading the view.
