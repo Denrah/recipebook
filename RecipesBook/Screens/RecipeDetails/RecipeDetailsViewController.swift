@@ -11,18 +11,15 @@ import Auk
 
 class RecipeDetailsViewController: UIViewController {
     
-    @IBOutlet weak var recipeTitle: UILabel!
-    @IBOutlet weak var recipeDescription: UILabel!
-    @IBOutlet weak var recipeInstructions: UILabel!
-    @IBOutlet weak var recipeImages: UIScrollView!
+    @IBOutlet private weak var recipeTitle: UILabel!
+    @IBOutlet private weak var recipeDescription: UILabel!
+    @IBOutlet private weak var recipeInstructions: UILabel!
+    @IBOutlet private weak var recipeImages: UIScrollView!
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var difficultyIndicatorContainer: UIView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var difficultyIndicatorContainer: UIView!
     
-    @IBOutlet weak var imagesPlaceholder: UIView!
-    
-    let difficultyIndicator = UINib(nibName: "DifficultyIndicatorView", bundle: nil)
-    
+    @IBOutlet private weak var imagesPlaceholder: UIView!
     
     var viewModel : RecipeDetailsViewModel! {
         didSet {
@@ -40,23 +37,17 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.containerView.layer.shadowColor = UIColor.shadow.cgColor
-        self.containerView.layer.shadowOpacity = 0.5
-        self.containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.containerView.layer.shadowRadius = 10
-        self.containerView.layer.masksToBounds = false
-        
-
+        setCardShadow(view: containerView)
         
         guard let recipe = viewModel.recipe.value else {
             return
         }
         
-        let difficultyIndicatorView = difficultyIndicator.instantiate(withOwner: self, options: nil).first as? DifficultyIndicatorView
-        difficultyIndicatorView?.setDifficlty(value: recipe.difficulty)
+        let difficultyIndicatorView = DifficultyIndicatorView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 20))
         
-        difficultyIndicatorContainer.addSubview(difficultyIndicatorView ?? UIView())
+        difficultyIndicatorView.setDifficulty(value: recipe.difficulty)
+        
+        difficultyIndicatorContainer.addSubview(difficultyIndicatorView)
         
         
         self.recipeTitle.text = recipe.name
@@ -89,4 +80,14 @@ class RecipeDetailsViewController: UIViewController {
 
     }
 
+}
+
+extension RecipeDetailsViewController {
+    private func setCardShadow(view: UIView) {
+        view.layer.shadowColor = UIColor.shadow.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 10
+        view.layer.masksToBounds = false
+    }
 }

@@ -19,7 +19,8 @@ class AppCoordinator: Coordinator {
             return
         }
         
-        let recipesListCoordinator = RecipesListCoordinator(dataProvider: dataProvider, rootViewController: rootViewController)
+        let recipesListCoordinator = RecipesListCoordinator(dataProvider: dataProvider,
+                                                            rootViewController: rootViewController)
         
         self.addChildCoordinator(recipesListCoordinator)
         
@@ -28,9 +29,4 @@ class AppCoordinator: Coordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()	
     }
-    
-    override func finish() {
-        
-    }
-
 }

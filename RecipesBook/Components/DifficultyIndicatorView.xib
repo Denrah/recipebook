@@ -10,9 +10,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DifficultyIndicatorView" customModule="RecipesBook" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="LfS-PQ-6GV"/>
+                <outlet property="hat1" destination="sun-uA-o5r" id="a6z-Qp-Zla"/>
+                <outlet property="hat2" destination="rFu-H6-7SP" id="SNn-Q3-B7Y"/>
+                <outlet property="hat3" destination="QXu-fz-ytZ" id="Ee5-H8-yyO"/>
+                <outlet property="hat4" destination="vtE-hZ-O7q" id="qAx-pw-JFF"/>
+                <outlet property="hat5" destination="4HM-JN-PPv" id="pCC-eO-UoE"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DifficultyIndicatorView" customModule="RecipesBook" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="213" height="20"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -77,13 +86,6 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="hat1" destination="sun-uA-o5r" id="yZ4-Ib-uSh"/>
-                <outlet property="hat2" destination="rFu-H6-7SP" id="fPz-9q-tbP"/>
-                <outlet property="hat3" destination="QXu-fz-ytZ" id="MfS-sO-N6I"/>
-                <outlet property="hat4" destination="vtE-hZ-O7q" id="VIe-2N-nUg"/>
-                <outlet property="hat5" destination="4HM-JN-PPv" id="DPk-j3-OIX"/>
-            </connections>
             <point key="canvasLocation" x="-100.72463768115942" y="-243.08035714285714"/>
         </view>
     </objects>

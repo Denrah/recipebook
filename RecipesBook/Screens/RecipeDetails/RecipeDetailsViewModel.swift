@@ -6,7 +6,7 @@ class RecipeDetailsViewModel {
     var recipeId = Dynamic<String>("")
     var recipe = Dynamic<Recipe>(Recipe())
     
-    let dataProvider : DataProvider
+    private let dataProvider : DataProvider
     
     init(dataProvider: DataProvider, recipeId: String) {
         self.dataProvider = dataProvider

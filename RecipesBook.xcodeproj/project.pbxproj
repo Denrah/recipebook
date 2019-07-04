@@ -12,9 +12,9 @@
 		8413755F22CC64AC00E56085 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413755E22CC64AC00E56085 /* Colors.swift */; };
 		8413756122CCBD8900E56085 /* DifficultyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413756022CCBD8900E56085 /* DifficultyIndicatorView.swift */; };
 		8413756322CCBDA500E56085 /* DifficultyIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413756222CCBDA500E56085 /* DifficultyIndicatorView.xib */; };
+		8413756522CE289300E56085 /* RecipesListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413756422CE289300E56085 /* RecipesListViewControllerDelegate.swift */; };
+		8413756822CE29E900E56085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8413756622CE29E900E56085 /* Main.storyboard */; };
 		8472F7AB22CA5A9700822DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7AA22CA5A9700822DD6 /* AppDelegate.swift */; };
-		8472F7AD22CA5A9700822DD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7AC22CA5A9700822DD6 /* ViewController.swift */; };
-		8472F7B022CA5A9700822DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8472F7AE22CA5A9700822DD6 /* Main.storyboard */; };
 		8472F7B222CA5A9A00822DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8472F7B122CA5A9A00822DD6 /* Assets.xcassets */; };
 		8472F7B522CA5A9A00822DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8472F7B322CA5A9A00822DD6 /* LaunchScreen.storyboard */; };
 		8472F7BE22CA5C0E00822DD6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7BD22CA5C0E00822DD6 /* Recipe.swift */; };
@@ -47,10 +47,10 @@
 		8413755E22CC64AC00E56085 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8413756022CCBD8900E56085 /* DifficultyIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyIndicatorView.swift; sourceTree = "<group>"; };
 		8413756222CCBDA500E56085 /* DifficultyIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DifficultyIndicatorView.xib; sourceTree = "<group>"; };
+		8413756422CE289300E56085 /* RecipesListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewControllerDelegate.swift; sourceTree = "<group>"; };
+		8413756722CE29E900E56085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8472F7A722CA5A9700822DD6 /* RecipesBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8472F7AA22CA5A9700822DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8472F7AC22CA5A9700822DD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8472F7AF22CA5A9700822DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8472F7B122CA5A9A00822DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8472F7B422CA5A9A00822DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8472F7B622CA5A9A00822DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,9 +118,8 @@
 				8472F7C122CA5EE500822DD6 /* Values */,
 				8472F7BC22CA5BF300822DD6 /* Model */,
 				8472F7AA22CA5A9700822DD6 /* AppDelegate.swift */,
-				8472F7AC22CA5A9700822DD6 /* ViewController.swift */,
-				8472F7AE22CA5A9700822DD6 /* Main.storyboard */,
 				8472F7B122CA5A9A00822DD6 /* Assets.xcassets */,
+				8413756622CE29E900E56085 /* Main.storyboard */,
 				8472F7B322CA5A9A00822DD6 /* LaunchScreen.storyboard */,
 				8472F7B622CA5A9A00822DD6 /* Info.plist */,
 			);
@@ -153,6 +152,7 @@
 				8472F7C522CA61B500822DD6 /* RecipesListViewController.swift */,
 				8472F7C622CA61B500822DD6 /* RecipesListViewController.xib */,
 				8472F7C922CA61FC00822DD6 /* RecipesListViewModel.swift */,
+				8413756422CE289300E56085 /* RecipesListViewControllerDelegate.swift */,
 			);
 			path = RecipesList;
 			sourceTree = "<group>";
@@ -291,9 +291,9 @@
 				8413755D22CBAC4200E56085 /* RecipesListTableHeaderView.xib in Resources */,
 				8472F7C822CA61B500822DD6 /* RecipesListViewController.xib in Resources */,
 				8472F7B522CA5A9A00822DD6 /* LaunchScreen.storyboard in Resources */,
+				8413756822CE29E900E56085 /* Main.storyboard in Resources */,
 				8472F7B222CA5A9A00822DD6 /* Assets.xcassets in Resources */,
 				8472F7D722CA6D7900822DD6 /* RecipeDetailsViewController.xib in Resources */,
-				8472F7B022CA5A9700822DD6 /* Main.storyboard in Resources */,
 				8472F7E122CB2A4B00822DD6 /* RecipesListCell.xib in Resources */,
 				8413756322CCBDA500E56085 /* DifficultyIndicatorView.xib in Resources */,
 			);
@@ -366,6 +366,7 @@
 				8472F7CC22CA621E00822DD6 /* Coordinator.swift in Sources */,
 				8472F7EC22CB484A00822DD6 /* RecipesListCoordinatorDelegate.swift in Sources */,
 				8472F7DA22CB13E500822DD6 /* RecipesData.swift in Sources */,
+				8413756522CE289300E56085 /* RecipesListViewControllerDelegate.swift in Sources */,
 				8413755C22CBAC4200E56085 /* RecipesListTableHeaderView.swift in Sources */,
 				8472F7E022CB2A4B00822DD6 /* RecipesListCell.swift in Sources */,
 				8472F7E422CB301E00822DD6 /* Dynamic.swift in Sources */,
@@ -375,7 +376,6 @@
 				8472F7D022CA680000822DD6 /* RecipesListCoordinator.swift in Sources */,
 				8472F7CA22CA61FC00822DD6 /* RecipesListViewModel.swift in Sources */,
 				8472F7F222CB668500822DD6 /* String.swift in Sources */,
-				8472F7AD22CA5A9700822DD6 /* ViewController.swift in Sources */,
 				8472F7CE22CA625F00822DD6 /* AppCoordinator.swift in Sources */,
 				8472F7C022CA5E8300822DD6 /* DataProvider.swift in Sources */,
 				8472F7D622CA6D7900822DD6 /* RecipeDetailsViewController.swift in Sources */,
@@ -386,10 +386,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8472F7AE22CA5A9700822DD6 /* Main.storyboard */ = {
+		8413756622CE29E900E56085 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8472F7AF22CA5A9700822DD6 /* Base */,
+				8413756722CE29E900E56085 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

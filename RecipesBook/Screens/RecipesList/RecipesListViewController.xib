@@ -62,18 +62,32 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="B2I-1J-32i"/>
+                        <outlet property="delegate" destination="-1" id="LDx-7y-NGC"/>
+                    </connections>
                 </tableView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZq-mw-o5G">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZq-mw-o5G">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-3r-Q0G">
-                            <rect key="frame" x="197" y="438" width="20" height="20"/>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-3r-Q0G">
+                            <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            <color key="color" red="0.5450980392" green="0.38823529410000002" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading recipes..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1e-ow-OvQ">
+                            <rect key="frame" x="15" y="474.5" width="384" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <color key="textColor" red="0.5450980392" green="0.38823529410000002" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="lr4-3r-Q0G" firstAttribute="centerX" secondItem="qZq-mw-o5G" secondAttribute="centerX" id="1CP-jP-9ia"/>
+                        <constraint firstItem="l1e-ow-OvQ" firstAttribute="top" secondItem="lr4-3r-Q0G" secondAttribute="bottom" constant="8" id="3Yx-i4-gdj"/>
                         <constraint firstItem="lr4-3r-Q0G" firstAttribute="centerY" secondItem="qZq-mw-o5G" secondAttribute="centerY" id="D6G-3c-dcs"/>
+                        <constraint firstAttribute="trailing" secondItem="l1e-ow-OvQ" secondAttribute="trailing" constant="15" id="Lvw-kY-m4V"/>
+                        <constraint firstItem="l1e-ow-OvQ" firstAttribute="leading" secondItem="qZq-mw-o5G" secondAttribute="leading" constant="15" id="xzp-C4-uz8"/>
                     </constraints>
                 </view>
             </subviews>

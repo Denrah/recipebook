@@ -10,13 +10,32 @@ import UIKit
 
 class DifficultyIndicatorView : UIView {
     
-    @IBOutlet weak var hat1: UIImageView!
-    @IBOutlet weak var hat2: UIImageView!
-    @IBOutlet weak var hat3: UIImageView!
-    @IBOutlet weak var hat4: UIImageView!
-    @IBOutlet weak var hat5: UIImageView!
+    @IBOutlet private weak var hat1: UIImageView!
+    @IBOutlet private weak var hat2: UIImageView!
+    @IBOutlet private weak var hat3: UIImageView!
+    @IBOutlet private weak var hat4: UIImageView!
+    @IBOutlet private weak var hat5: UIImageView!
     
-    func setDifficlty(value: Int) {
+    @IBOutlet private var contentView: UIView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSubviews()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSubviews()
+    }
+    
+    func initSubviews() {
+        let nib = UINib(nibName: "DifficultyIndicatorView", bundle: nil)
+        nib.instantiate(withOwner: self, options: nil)
+        contentView.frame = bounds
+        addSubview(contentView)
+    }
+    
+    func setDifficulty(value: Int) {
         let hats : [UIImageView] = [self.hat1, self.hat2, self.hat3, self.hat4, self.hat5]
         for i in 0..<value {
             hats[i].isHidden = false

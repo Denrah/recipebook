@@ -10,26 +10,24 @@ import UIKit
 
 class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
     
-    var parentDelegate : RecipesListViewController!
+    var parentDelegate : RecipesListViewControllerDelegate!
     
-    @IBOutlet var contentView: UIView!
+    @IBOutlet private var contentView: UIView!
     
-    @IBOutlet weak var searchBar: UISearchBar! {
+    @IBOutlet private weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
         }
     }
-    @IBOutlet weak var sortingButton: UIButton!
+    @IBOutlet private weak var sortingButton: UIButton!
     
-    var sortingType = SortingType.name {
+    private var sortingType = SortingType.name {
         didSet {
             switch self.sortingType {
-            case SortingType.name:
+            case .name:
                 sortingButton.setImage(#imageLiteral(resourceName: "icons8-сортировка-по-алфавиту-filled-100"), for: .normal)
-            case SortingType.updated:
+            case .updated:
                 sortingButton.setImage(#imageLiteral(resourceName: "icons8-поиск-по-времени-100"), for: .normal)
-            default:
-                sortingButton.setImage(#imageLiteral(resourceName: "icons8-сортировка-по-алфавиту-filled-100"), for: .normal)
             }
         }
     }
@@ -55,14 +53,12 @@ class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
         parentDelegate.search(text: searchText, sortingType: self.sortingType)
     }
     
-    @IBAction func onSortingButton(_ sender: Any) {
+    @IBAction private func onSortingButton(_ sender: Any) {
         switch self.sortingType {
-        case SortingType.name:
-            sortingType = SortingType.updated
-        case SortingType.updated:
-            sortingType = SortingType.name
-        default:
-            sortingType = SortingType.updated
+        case .name:
+            sortingType = .updated
+        case .updated:
+            sortingType = .name
         }
         
         parentDelegate.sort(sortingType: self.sortingType)

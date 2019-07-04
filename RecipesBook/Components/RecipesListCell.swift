@@ -11,12 +11,12 @@ import Kingfisher
 
 class RecipesListCell: UITableViewCell {
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var shadowView: UIView!
-    @IBOutlet weak var cellImage: UIImageView!
-    @IBOutlet weak var cellTitle: UILabel!
-    @IBOutlet weak var cellDescription: UILabel!
-    @IBOutlet weak var cellUpdated: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var shadowView: UIView!
+    @IBOutlet private weak var cellImage: UIImageView!
+    @IBOutlet private weak var cellTitle: UILabel!
+    @IBOutlet private weak var cellDescription: UILabel!
+    @IBOutlet private weak var cellUpdated: UILabel!
     
 
     override func awakeFromNib() {

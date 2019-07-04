@@ -4,7 +4,7 @@ class RecipesListViewModel {
     
     weak var coordinatorDelegate : RecipesListCoordinator?
     
-    let dataProvider : DataProvider
+    private let dataProvider : DataProvider
     var recipes = Dynamic<RecipesData?>(RecipesData())
     var isLoading = Dynamic<Bool>(true)
     
@@ -16,7 +16,7 @@ class RecipesListViewModel {
         getRecipes()
     }
     
-    func getRecipes() {
+    private func getRecipes() {
         isLoading.value = true
         dataProvider.fetchData { (recipesData) in
             self.recipes.value = recipesData
@@ -24,15 +24,22 @@ class RecipesListViewModel {
         }
     }
     
+    func updateRecipes(completion: @escaping () -> Void) {
+        dataProvider.fetchData { (recipesData) in
+            self.recipes.value = recipesData
+            completion()
+        }
+    }
+    
     func goToRecipeDetails(index: Int) {
         coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes.value??.recipes[index].uuid ?? "")
     }
     
-    func searchRecipes(text: String, sortingType: Int) {
+    func searchRecipes(text: String, sortingType: SortingType) {
         self.recipes.value = dataProvider.searchRecipes(text: text, sortingType: sortingType)
     }
     
-    func sortRecipes(sortingType: Int) {
+    func sortRecipes(sortingType: SortingType) {
         self.recipes.value = dataProvider.sortRecipes(sortingType: sortingType, recipesData: self.recipes.value ?? RecipesData())
     }
     

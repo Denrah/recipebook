@@ -2,15 +2,13 @@ import Alamofire
 
 class DataProvider {
 
-    var recipes : RecipesData
+    private var recipes : RecipesData
     
     init() {
         self.recipes = RecipesData()
     }
 
     func fetchData(completion: @escaping (RecipesData?) -> Void) {
-    
-        
         guard NetworkReachabilityManager()!.isReachable else {
             completion(nil)
             return
@@ -23,12 +21,12 @@ class DataProvider {
                 return
             }
             
-            
             let decoder = JSONDecoder()
             
             do {
                 self.recipes = try decoder.decode(RecipesData.self, from: data)
-                completion(self.sortRecipes(sortingType: SortingType.name, recipesData: self.recipes))
+                completion(self.sortRecipes(sortingType: SortingType.name,
+                                            recipesData: self.recipes))
 
             } catch let error {
                 print(error)
@@ -49,7 +47,7 @@ class DataProvider {
         return recipe[0]
     }
     
-    func searchRecipes(text: String, sortingType: Int) -> RecipesData {
+    func searchRecipes(text: String, sortingType: SortingType) -> RecipesData {
         
         guard text != "" else {
             return sortRecipes(sortingType: sortingType, recipesData: self.recipes)
@@ -66,15 +64,13 @@ class DataProvider {
         return sortRecipes(sortingType: sortingType, recipesData: data)
     }
     
-    func sortRecipes(sortingType: Int, recipesData: RecipesData?) -> RecipesData {
+    func sortRecipes(sortingType: SortingType, recipesData: RecipesData?) -> RecipesData {
         var data = RecipesData()
         switch sortingType {
-        case SortingType.name:
+        case .name:
             data.recipes = recipesData?.recipes.sorted(by: { $0.name < $1.name }) ?? [Recipe]()
-        case SortingType.updated:
+        case .updated:
             data.recipes = recipesData?.recipes.sorted(by: { $0.lastUpdated < $1.lastUpdated }) ?? [Recipe]()
-        default:
-            data.recipes = recipesData?.recipes.sorted(by: { $0.name < $1.name }) ?? [Recipe]()
         }
         
         return data
