@@ -60,7 +60,7 @@ class RecipeDetailsViewController: UIViewController {
         
         
         self.recipeTitle.text = recipe.name
-        self.recipeDescription.text = recipe.description
+        self.recipeDescription.text = recipe.description ?? "-"
         self.recipeInstructions.attributedText = recipe.instructions.htmlAttributed(family: nil, size: 12)
         for image in recipe.images {
             recipeImages.auk.show(url: image)

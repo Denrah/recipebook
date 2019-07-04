@@ -28,8 +28,6 @@ class RecipesListCell: UITableViewCell {
         self.shadowView.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.shadowView.layer.shadowRadius = 10
         self.shadowView.layer.masksToBounds = false
-        
-        // Initialization code
     }
     
     func setup(title: String, description: String?, image recipeImage: String?, updated: Int) {
@@ -49,16 +47,4 @@ class RecipesListCell: UITableViewCell {
         
         cellUpdated.text = "Last updated: " + dateFormatter.string(from: date)
     }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
 }

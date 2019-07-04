@@ -70,12 +70,17 @@ class RecipesListViewController: UIViewController {
         recipesTableView.dataSource = self
         recipesTableView.register(tableCell, forCellReuseIdentifier: "RecipeCell")
         
-        let tableHeaderView = tableHeader.instantiate(withOwner: self, options: nil).first as? RecipesListTableHeaderView
         
-        tableHeaderView?.parentDelegate = self
+        let tableHeaderView = RecipesListTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 190))
+        
+        tableHeaderView.parentDelegate = self
+        
+        //let tableHeaderView = tableHeader.instantiate(withOwner: self, options: nil).first as? RecipesListTableHeaderView
+        
+        //tableHeaderView?.parentDelegate = self
     
         
-        tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableHeaderView?.frame.width ?? 100, height: 190)
+        //tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableHeaderView?.frame.width ?? 100, height: 190)
         
         
         recipesTableView.tableHeaderView = tableHeaderView
