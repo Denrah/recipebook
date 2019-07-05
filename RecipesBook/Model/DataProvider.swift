@@ -55,7 +55,9 @@ class DataProvider {
         
         var data = RecipesData()
         data.recipes = self.recipes.recipes.filter { (recipe) -> Bool in
-            if recipe.name.contains(text) || recipe.instructions.contains(text) || recipe.description?.contains(text) ?? false {
+            if recipe.name.lowercased().contains(text.lowercased()) ||
+                recipe.instructions.lowercased().contains(text.lowercased()) ||
+                recipe.description?.lowercased().contains(text.lowercased()) ?? false {
                 return true
             }
             return false
