@@ -28,7 +28,7 @@
                     <rect key="frame" x="60" y="350" width="294" height="222.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_cooking_2664008" translatesAutoresizingMaskIntoConstraints="NO" id="lMr-5I-Aj9">
-                            <rect key="frame" x="8" y="8" width="278" height="164.50000000000006"/>
+                            <rect key="frame" x="8" y="8" width="278" height="164.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="lMr-5I-Aj9" secondAttribute="height" multiplier="279:154" constant="-19.928571428571331" id="KNE-FT-oFO"/>
                             </constraints>

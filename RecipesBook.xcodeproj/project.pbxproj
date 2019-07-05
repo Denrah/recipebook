@@ -34,7 +34,6 @@
 		8472F7EA22CB44BF00822DD6 /* RecipeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7E922CB44BF00822DD6 /* RecipeDetailsCoordinator.swift */; };
 		8472F7EC22CB484A00822DD6 /* RecipesListCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7EB22CB484A00822DD6 /* RecipesListCoordinatorDelegate.swift */; };
 		8472F7EE22CB49BA00822DD6 /* RecipeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7ED22CB49BA00822DD6 /* RecipeDetailsViewModel.swift */; };
-		8472F7F022CB64A200822DD6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8472F7EF22CB64A200822DD6 /* WebKit.framework */; };
 		8472F7F222CB668500822DD6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472F7F122CB668500822DD6 /* String.swift */; };
 		CC445BA5898AAA3C0DCB2DD1 /* Pods_RecipesBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6758CF00FFA8F6F50BE4822E /* Pods_RecipesBook.framework */; };
 /* End PBXBuildFile section */
@@ -70,7 +69,6 @@
 		8472F7E922CB44BF00822DD6 /* RecipeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		8472F7EB22CB484A00822DD6 /* RecipesListCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		8472F7ED22CB49BA00822DD6 /* RecipeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewModel.swift; sourceTree = "<group>"; };
-		8472F7EF22CB64A200822DD6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8472F7F122CB668500822DD6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B1E9DCBF6F7058187FF6844F /* Pods-RecipesBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesBook.release.xcconfig"; path = "Target Support Files/Pods-RecipesBook/Pods-RecipesBook.release.xcconfig"; sourceTree = "<group>"; };
 		BD04B2707EE37444A312E4D2 /* Pods-RecipesBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesBook.debug.xcconfig"; path = "Target Support Files/Pods-RecipesBook/Pods-RecipesBook.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8472F7F022CB64A200822DD6 /* WebKit.framework in Frameworks */,
 				CC445BA5898AAA3C0DCB2DD1 /* Pods_RecipesBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +216,6 @@
 		DD16A7027E10275646A3FB4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8472F7EF22CB64A200822DD6 /* WebKit.framework */,
 				6758CF00FFA8F6F50BE4822E /* Pods_RecipesBook.framework */,
 			);
 			name = Frameworks;
