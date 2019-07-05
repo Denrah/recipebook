@@ -55,12 +55,9 @@ class DataProvider {
         
         var data = RecipesData()
         data.recipes = self.recipes.recipes.filter { (recipe) -> Bool in
-            if recipe.name.lowercased().contains(text.lowercased()) ||
+            return (recipe.name.lowercased().contains(text.lowercased()) ||
                 recipe.instructions.lowercased().contains(text.lowercased()) ||
-                recipe.description?.lowercased().contains(text.lowercased()) ?? false {
-                return true
-            }
-            return false
+                recipe.description?.lowercased().contains(text.lowercased()) ?? false)
         }
         
         return sortRecipes(sortingType: sortingType, recipesData: data)
