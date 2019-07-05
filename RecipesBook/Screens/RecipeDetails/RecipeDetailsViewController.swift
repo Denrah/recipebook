@@ -17,13 +17,15 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet private weak var recipeImages: UIScrollView!
     
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var difficultyIndicatorContainer: UIView!
+    @IBOutlet weak var difficultyIndicator: DifficultyIndicator!
     
     @IBOutlet private weak var imagesPlaceholder: UIView!
     
     var viewModel : RecipeDetailsViewModel! {
         didSet {
-            viewModel.recipe.bind = {[unowned self] in
+            viewModel.recipe.bind = {[weak self] in
+                guard let self = self else {return}
+                
                 self.recipeTitle.text = $0.name
                 self.recipeDescription.text = $0.description
                 self.recipeInstructions.attributedText = $0.instructions.htmlAttributed(family: nil, size: 17)
@@ -43,12 +45,7 @@ class RecipeDetailsViewController: UIViewController {
             return
         }
         
-        let difficultyIndicatorView = DifficultyIndicatorView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 20))
-        
-        difficultyIndicatorView.setDifficulty(value: recipe.difficulty)
-        
-        difficultyIndicatorContainer.addSubview(difficultyIndicatorView)
-        
+        difficultyIndicator.value = recipe.difficulty
         
         self.recipeTitle.text = recipe.name
         self.recipeDescription.text = recipe.description ?? "-"

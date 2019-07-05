@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeDetailsViewController" customModule="RecipesBook" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="7ro-98-HsP" id="K4l-kM-TaC"/>
-                <outlet property="difficultyIndicatorContainer" destination="7Ts-h5-WTg" id="HV2-He-yav"/>
+                <outlet property="difficultyIndicator" destination="xlK-pz-HUU" id="Ld4-dD-Hoj"/>
                 <outlet property="imagesPlaceholder" destination="hUf-ga-zCK" id="1VD-e1-y9P"/>
                 <outlet property="recipeDescription" destination="gQt-ry-gbk" id="o97-UY-0w0"/>
                 <outlet property="recipeImages" destination="vHp-0Y-F2Q" id="fRj-tB-NjV"/>
@@ -173,10 +173,43 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-h5-WTg">
                                     <rect key="frame" x="20" y="62.5" width="374" height="20"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCn-cO-2Rq">
+                                            <rect key="frame" x="0.0" y="0.0" width="73" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.29563509519999998" green="0.29094170339999997" blue="0.32528949870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlK-pz-HUU" customClass="DifficultyIndicator" customModule="RecipesBook" customModuleProvider="target">
+                                            <rect key="frame" x="81" y="0.0" width="293" height="20"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="hat"/>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="imageSize">
+                                                    <size key="value" width="20" height="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="margin">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Hyk-sS-qw3"/>
+                                        <constraint firstItem="xlK-pz-HUU" firstAttribute="top" secondItem="7Ts-h5-WTg" secondAttribute="top" id="VyE-iB-UaD"/>
+                                        <constraint firstItem="gCn-cO-2Rq" firstAttribute="top" secondItem="7Ts-h5-WTg" secondAttribute="top" id="Wqi-fJ-Qmo"/>
+                                        <constraint firstItem="xlK-pz-HUU" firstAttribute="leading" secondItem="gCn-cO-2Rq" secondAttribute="trailing" constant="8" id="Yg0-8M-nH3"/>
+                                        <constraint firstAttribute="bottom" secondItem="gCn-cO-2Rq" secondAttribute="bottom" id="eqe-3S-cTd"/>
+                                        <constraint firstItem="gCn-cO-2Rq" firstAttribute="leading" secondItem="7Ts-h5-WTg" secondAttribute="leading" id="etf-yq-dnY"/>
+                                        <constraint firstAttribute="bottom" secondItem="xlK-pz-HUU" secondAttribute="bottom" id="lbg-Ah-tNB"/>
+                                        <constraint firstAttribute="trailing" secondItem="xlK-pz-HUU" secondAttribute="trailing" id="zFe-lz-f1Y"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -215,6 +248,7 @@
         </view>
     </objects>
     <resources>
+        <image name="hat" width="110" height="105.66666412353516"/>
         <image name="noun_Recipe Book_1132474" width="350" height="350"/>
     </resources>
 </document>

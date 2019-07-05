@@ -13,11 +13,15 @@ class RecipesListViewController: UIViewController {
     var viewModel : RecipesListViewModel! {
         didSet {
             
-            viewModel.isLoading.bind = {[unowned self] in
+            viewModel.isLoading.bind = {[weak self] in
+                guard let self = self else {return}
                 self.preloadingView.isHidden = !$0
             }
             
-            viewModel.recipes.bind = {[unowned self] in
+            viewModel.recipes.bind = {[weak self] in
+                
+                guard let self = self else {return}
+                
                 guard let data = $0 else {
                    
                     let alert = UIAlertController(title: "Error", message: "Something wrong with your network :(", preferredStyle: .alert)
