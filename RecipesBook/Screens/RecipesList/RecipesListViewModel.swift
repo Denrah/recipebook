@@ -40,6 +40,7 @@ class RecipesListViewModel {
     }
     
     func sortRecipes(sortingType: SortingType) {
-        self.recipes.value = dataProvider.sortRecipes(sortingType: sortingType, recipesData: self.recipes.value ?? RecipesData())
+        self.recipes.value = dataProvider.sortRecipes(sortingType: sortingType,
+                                                      recipesData: self.recipes.value ?? RecipesData())
     }
 }

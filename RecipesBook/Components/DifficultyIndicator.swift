@@ -56,9 +56,11 @@ class DifficultyIndicator: UIView {
     }
     
     private func configureIndicator() {
-        let container = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(value) * (imageSize.width + margin), height: 20))
+        let container = UIView(frame: CGRect(x: 0, y: 0,
+                                             width: CGFloat(value) * (imageSize.width + margin), height: 20))
         for i in 0..<value {
-            let item = UIImageView(frame: CGRect(origin: CGPoint(x: (imageSize.width + margin) * CGFloat(i), y: 0), size: imageSize))
+            let item = UIImageView(frame: CGRect(origin: CGPoint(x: (imageSize.width + margin) * CGFloat(i),
+                                                                 y: 0), size: imageSize))
             item.image = image
             items.append(item)
             container.addSubview(item)

@@ -28,7 +28,8 @@ class RecipesListCell: UITableViewCell {
         self.shadowView.layer.masksToBounds = false
     }
     
-    func setup(title: String, description: String?, image recipeImage: String?, updated: Int) {
+    func setup(title: String, description: String?,
+               image recipeImage: String?, updated: Int) {
         let date = Date(timeIntervalSince1970: TimeInterval(updated))
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.DateBaseFormat
@@ -37,7 +38,8 @@ class RecipesListCell: UITableViewCell {
         cellDescription.text = description?.trunc(length: 80)
         
         if let image = recipeImage {
-            cellImage.kf.setImage(with: URL(string: image))
+            cellImage.kf.setImage(with: URL(string: image),
+                                  placeholder: #imageLiteral(resourceName: "andy-chilton-0JFveX0c778-unsplash"))
         } else {
             cellImage.image = #imageLiteral(resourceName: "andy-chilton-0JFveX0c778-unsplash")
         }

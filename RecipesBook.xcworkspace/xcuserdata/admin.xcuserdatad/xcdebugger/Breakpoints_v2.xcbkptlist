@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Screens/RecipesList/RecipesListViewModel.swift"
-            timestampString = "584013613.769659"
+            timestampString = "584014247.9796571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Screens/RecipeDetails/RecipeDetailsViewModel.swift"
-            timestampString = "584013613.76989"
+            timestampString = "584014247.979805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -42,11 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Coordinators/RecipesListCoordinator.swift"
-            timestampString = "584013613.7700469"
+            timestampString = "584014247.9798729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37">
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "didFinish(from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,11 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Coordinators/RecipesListCoordinator.swift"
-            timestampString = "584013613.770175"
+            timestampString = "584014247.979925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38">
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "didFinish(from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -70,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Screens/RecipeDetails/RecipeDetailsViewModel.swift"
-            timestampString = "584013613.770236"
+            timestampString = "584014247.979975"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
@@ -86,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Model/DataProvider.swift"
-            timestampString = "584013613.770295"
+            timestampString = "584014247.980027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -102,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipesBook/Model/DataProvider.swift"
-            timestampString = "584013613.770347"
+            timestampString = "584014247.98049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"

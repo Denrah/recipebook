@@ -18,7 +18,6 @@ class RecipesListViewController: UIViewController {
             }
             
             viewModel.recipes.bind = {[weak self] in
-                
                 guard let self = self else {return}
                 
                 guard let data = $0 else {
@@ -59,7 +58,8 @@ class RecipesListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         recipesTableView.refreshControl = refreshControl
         
-        let tableHeaderView = RecipesListTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 190))
+        let tableHeaderView = RecipesListTableHeaderView(frame: CGRect(x: 0, y: 0,
+                                                                       width: view.bounds.width, height: 190))
         
         tableHeaderView.parentDelegate = self
         

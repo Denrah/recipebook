@@ -18,7 +18,8 @@ class RecipesListCoordinator: Coordinator {
     }
     
     override func start() {
-        let recipesListViewController = RecipesListViewController(nibName: Constants.RecipesListScreenName, bundle: nil)
+        let recipesListViewController = RecipesListViewController(nibName: Constants.RecipesListScreenName,
+                                                                  bundle: nil)
         recipesListViewController.viewModel = recipesListViewModel
         rootViewController.setViewControllers([recipesListViewController], animated: false)
     }
@@ -26,7 +27,8 @@ class RecipesListCoordinator: Coordinator {
 
 extension RecipesListCoordinator {
     func goToRecipeDetails(recipeId: String) {
-        let recipeDetailsCoordinator = RecipeDetailsCoordinator(dataProvider: self.dataProvider, rootViewController: self.rootViewController, recipeId: recipeId)
+        let recipeDetailsCoordinator = RecipeDetailsCoordinator(dataProvider: self.dataProvider,
+                                                                rootViewController: self.rootViewController, recipeId: recipeId)
         recipeDetailsCoordinator.delegate = self
         addChildCoordinator(recipeDetailsCoordinator)
         recipeDetailsCoordinator.start()
