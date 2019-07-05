@@ -18,10 +18,8 @@ class RecipesListCell: UITableViewCell {
     @IBOutlet private weak var cellDescription: UILabel!
     @IBOutlet private weak var cellUpdated: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         
         self.shadowView.layer.shadowColor = UIColor.shadow.cgColor
         self.shadowView.layer.shadowOpacity = 0.5
@@ -31,10 +29,9 @@ class RecipesListCell: UITableViewCell {
     }
     
     func setup(title: String, description: String?, image recipeImage: String?, updated: Int) {
-        
         let date = Date(timeIntervalSince1970: TimeInterval(updated))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.dateFormat = Constants.DateBaseFormat
         
         cellTitle.text = title
         cellDescription.text = description?.trunc(length: 80)

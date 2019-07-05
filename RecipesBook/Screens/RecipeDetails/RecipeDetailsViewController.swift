@@ -15,15 +15,14 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet private weak var recipeDescription: UILabel!
     @IBOutlet private weak var recipeInstructions: UILabel!
     @IBOutlet private weak var recipeImages: UIScrollView!
-    
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet weak var difficultyIndicator: DifficultyIndicator!
-    
     @IBOutlet private weak var imagesPlaceholder: UIView!
     
-    var viewModel : RecipeDetailsViewModel! {
+    var viewModel: RecipeDetailsViewModel! {
         didSet {
             viewModel.recipe.bind = {[weak self] in
+                
                 guard let self = self else {return}
                 
                 self.recipeTitle.text = $0.name
@@ -57,7 +56,6 @@ class RecipeDetailsViewController: UIViewController {
         if recipe.images.count > 0 {
             imagesPlaceholder.removeFromSuperview()
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,15 +66,11 @@ class RecipeDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-    
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-
     }
-
 }
 
 extension RecipeDetailsViewController {

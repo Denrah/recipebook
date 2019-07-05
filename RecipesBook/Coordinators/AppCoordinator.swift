@@ -1,7 +1,6 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    
     let window: UIWindow?
     
     lazy var rootViewController: UINavigationController = {
@@ -21,9 +20,7 @@ class AppCoordinator: Coordinator {
         
         let recipesListCoordinator = RecipesListCoordinator(dataProvider: dataProvider,
                                                             rootViewController: rootViewController)
-        
         self.addChildCoordinator(recipesListCoordinator)
-        
         recipesListCoordinator.start()
         
         window.rootViewController = rootViewController

@@ -4,7 +4,6 @@ class RecipeDetailsCoordinator: Coordinator {
     
     let rootViewController: UINavigationController
     
-    
     private let dataProvider: DataProvider
     
     weak var delegate: RecipesListCoordinatorDelegate?
@@ -25,9 +24,7 @@ class RecipeDetailsCoordinator: Coordinator {
     
     override func start() {
         let recipeDetailsViewController = RecipeDetailsViewController(nibName: Constants.RecipeDetailsScreenName, bundle: nil)
-        
         recipeDetailsViewController.viewModel = recipeDetailsViewModel
-        
         rootViewController.pushViewController(recipeDetailsViewController, animated: true)
     }
     

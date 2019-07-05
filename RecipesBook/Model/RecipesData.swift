@@ -1,4 +1,4 @@
-struct RecipesData : Codable {
+struct RecipesData: Codable {
     var recipes: [Recipe]
     
     init() {

@@ -6,8 +6,8 @@ enum Constants {
     static let RecipeDetailsScreenName = "RecipeDetailsViewController"
     static let RecipeListTableHeaderName = "RecipesListTableHeaderView"
     static let DifficultyIndicatorName = "DifficultyIndicatorView"
+    static let DateBaseFormat = "dd.MM.yyyy HH:mm"
 }
-
 
 enum SortingType {
     case name, updated

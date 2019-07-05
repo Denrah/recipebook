@@ -2,7 +2,7 @@ import Alamofire
 
 class DataProvider {
 
-    private var recipes : RecipesData
+    private var recipes: RecipesData
     
     init() {
         self.recipes = RecipesData()

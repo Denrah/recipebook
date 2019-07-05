@@ -1,12 +1,11 @@
 class RecipeDetailsViewModel {
     
-    weak var coordinatorDelegate : RecipeDetailsCoordinator?
-    //var viewDelegate : RecipesListViewControllerType?
+    weak var coordinatorDelegate: RecipeDetailsCoordinator?
     
     var recipeId = Dynamic<String>("")
     var recipe = Dynamic<Recipe>(Recipe())
     
-    private let dataProvider : DataProvider
+    private let dataProvider: DataProvider
     
     init(dataProvider: DataProvider, recipeId: String) {
         self.dataProvider = dataProvider
@@ -20,5 +19,4 @@ class RecipeDetailsViewModel {
     func goBack() {
         coordinatorDelegate?.finish()
     }
-    
 }

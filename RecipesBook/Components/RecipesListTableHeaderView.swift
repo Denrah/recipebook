@@ -10,7 +10,7 @@ import UIKit
 
 class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
     
-    var parentDelegate : RecipesListViewControllerDelegate!
+    var parentDelegate: RecipesListViewControllerDelegate!
     
     @IBOutlet private var contentView: UIView!
     
@@ -19,6 +19,7 @@ class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
             searchBar.delegate = self
         }
     }
+    
     @IBOutlet private weak var sortingButton: UIButton!
     
     private var sortingType = SortingType.name {
@@ -60,7 +61,6 @@ class RecipesListTableHeaderView: UIView, UISearchBarDelegate  {
         case .updated:
             sortingType = .name
         }
-        
         parentDelegate.sort(sortingType: self.sortingType)
     }
 }

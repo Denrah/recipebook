@@ -9,10 +9,10 @@
 import UIKit
 
 @IBDesignable
-class DifficultyIndicator : UIView {
+class DifficultyIndicator: UIView {
     
     @IBInspectable
-    var value : Int = 1 {
+    var value: Int = 1 {
         didSet {
             removeItems()
             configureIndicator()
@@ -20,7 +20,7 @@ class DifficultyIndicator : UIView {
     }
     
     @IBInspectable
-    var image : UIImage = UIImage() {
+    var image: UIImage = UIImage() {
         didSet {
             removeItems()
             configureIndicator()
@@ -28,7 +28,7 @@ class DifficultyIndicator : UIView {
     }
     
     @IBInspectable
-    var imageSize : CGSize = CGSize(width: 20, height: 20) {
+    var imageSize: CGSize = CGSize(width: 20, height: 20) {
         didSet {
             removeItems()
             configureIndicator()
@@ -36,7 +36,7 @@ class DifficultyIndicator : UIView {
     }
     
     @IBInspectable
-    var margin : CGFloat = 5 {
+    var margin: CGFloat = 5 {
         didSet {
             removeItems()
             configureIndicator()
@@ -44,7 +44,6 @@ class DifficultyIndicator : UIView {
     }
     
     var items = [UIView]()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

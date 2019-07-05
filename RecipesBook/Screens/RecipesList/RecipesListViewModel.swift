@@ -2,9 +2,9 @@ import UIKit
 
 class RecipesListViewModel {
     
-    weak var coordinatorDelegate : RecipesListCoordinator?
+    weak var coordinatorDelegate: RecipesListCoordinator?
     
-    private let dataProvider : DataProvider
+    private let dataProvider: DataProvider
     var recipes = Dynamic<RecipesData?>(RecipesData())
     var isLoading = Dynamic<Bool>(true)
     
@@ -42,5 +42,4 @@ class RecipesListViewModel {
     func sortRecipes(sortingType: SortingType) {
         self.recipes.value = dataProvider.sortRecipes(sortingType: sortingType, recipesData: self.recipes.value ?? RecipesData())
     }
-    
 }

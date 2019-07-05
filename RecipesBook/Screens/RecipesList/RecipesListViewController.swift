@@ -10,9 +10,8 @@ import UIKit
 
 class RecipesListViewController: UIViewController {
     
-    var viewModel : RecipesListViewModel! {
+    var viewModel: RecipesListViewModel! {
         didSet {
-            
             viewModel.isLoading.bind = {[weak self] in
                 guard let self = self else {return}
                 self.preloadingView.isHidden = !$0
@@ -23,25 +22,17 @@ class RecipesListViewController: UIViewController {
                 guard let self = self else {return}
                 
                 guard let data = $0 else {
-                   
                     let alert = UIAlertController(title: "Error", message: "Something wrong with your network :(", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title:"Quit", style: .cancel, handler: { (action) in
                         exit(0)
                     }))
                     self.present(alert, animated: true)
                     return
-
                 }
                 
                 self.recipesData = data
-                
                 self.recipesTableView.reloadData()
-                
-                if self.recipesData.recipes.count == 0 {
-                    self.placeholderView.isHidden = false
-                } else {
-                    self.placeholderView.isHidden = true
-                }
+                self.placeholderView.isHidden = !self.recipesData.recipes.isEmpty
             }
         }
     }
@@ -77,7 +68,6 @@ class RecipesListViewController: UIViewController {
         setGradient(view: backgroundView)
         
         viewModel.start()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,7 +120,8 @@ extension RecipesListViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     @objc func refreshData() {
-        viewModel.updateRecipes {[unowned self] in
+        viewModel.updateRecipes {[weak self] in
+            guard let self = self else {return}
             self.recipesTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
